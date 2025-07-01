@@ -9,7 +9,11 @@ int main()
 
     srand(time(NULL));
 
-    int size = 1000000000;
+    int size;
+
+    printf("\nSeja bem-vindo. \nInsira o tamanho do vetor: ");
+
+    scanf("%d", &size);
     int *vec = malloc(sizeof(int) * size);
 
     int loop = 1;
@@ -68,6 +72,10 @@ int main()
 
         clock_t end = clock();
         double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+        for (int i = 0; i < size; i++) {
+            printf("%d: %d\n", i, vec[i]);
+        }
 
         printf("\n\nTime Spent: %lfs\n", time_spent);
     }
