@@ -3,7 +3,6 @@
 #include "selectionSort.h"
 #include "quickSort.h"
 #include "mergeSort.h"
-#include "maiorElemento.h"
 
 int main()
 {
@@ -26,7 +25,7 @@ int main()
             vec[i] = rand();
         }
 
-        printf("\nEscolha: \n\n0. Encerrar Programa \n1. BubbleSort\n2. InsertionSort\n3. SelectionSort \n4. QuickSort\n5. MergeSort\n(Não relacionado) 6. Maior elemento.\n\nInput: ");
+        printf("\nEscolha: \n\n0. Encerrar Programa \n1. BubbleSort\n2. InsertionSort\n3. SelectionSort \n4. QuickSort\n5. MergeSort\n\nInput: ");
 
         int choice = 0;
         scanf("%d", &choice);
@@ -63,12 +62,6 @@ int main()
             mergeSort(vec, 0, size - 1, auxVec);
             free(auxVec); // Liberação da memória após uso
 
-            break;
-        }
-
-        case 6:
-        {
-            printf("%d", maiorElemento(vec, 0, size - 1));
             break;
         }
 
