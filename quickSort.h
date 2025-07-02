@@ -1,21 +1,25 @@
 #include "constants.h"
 
 void quickSort(int *vec, int start, int end) {
-    int pivot = start;
 
     if (start >= end) {
         return;
     }
 
-    for (int i = start + 1; i <= end; i++) {
-        if (vec[i] < vec[pivot]) {
-            swap(&vec[pivot + 1], &vec[i]);
-            swap(&vec[pivot], &vec[pivot + 1]);
+    int pivot = vec[end];
 
-            pivot++;
+    int i = start - 1;
+    for (int j = start; j < end; j++) {
+
+        if (vec[j] < pivot) {
+            i++;
+
+            swap(&vec[j], &vec[i]);
         }
     }
 
-    quickSort(vec, start, pivot - 1);
-    quickSort(vec, pivot + 1, end);
+    swap(&vec[i + 1], &vec[end]);
+
+    quickSort(vec, start, i);
+    quickSort(vec, i + 2, end);
 }

@@ -3,6 +3,7 @@
 #include "selectionSort.h"
 #include "quickSort.h"
 #include "mergeSort.h"
+#include "maiorElemento.h"
 
 int main()
 {
@@ -20,15 +21,15 @@ int main()
 
     while (loop)
     {
-        printf("\nEscolha: \n\n0. Encerrar Programa \n1. BubbleSort\n2. InsertionSort\n3. SelectionSort \n4. QuickSort\n5. MergeSort\n\nInput: ");
-
-        int choice = 0;
-        scanf("%d", &choice);
-
         for (int i = 0; i < size; i++)
         {
             vec[i] = rand();
         }
+
+        printf("\nEscolha: \n\n0. Encerrar Programa \n1. BubbleSort\n2. InsertionSort\n3. SelectionSort \n4. QuickSort\n5. MergeSort\n(Não relacionado) 6. Maior elemento.\n\nInput: ");
+
+        int choice = 0;
+        scanf("%d", &choice);
 
         clock_t begin = clock();
 
@@ -61,8 +62,15 @@ int main()
 
             mergeSort(vec, 0, size - 1, auxVec);
             free(auxVec); // Liberação da memória após uso
+
+            break;
         }
-        break;
+
+        case 6:
+        {
+            printf("%d", maiorElemento(vec, 0, size - 1));
+            break;
+        }
 
         case 0:
             loop = 0;
@@ -74,7 +82,7 @@ int main()
         double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
         for (int i = 0; i < size; i++) {
-            printf("%d: %d\n", i, vec[i]);
+            printf("%d\n", vec[i]);
         }
 
         printf("\n\nTime Spent: %lfs\n", time_spent);
